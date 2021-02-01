@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.waveaccess.test.conference.models.User;
-import ru.waveaccess.test.conference.repositories.UserRepository;
+import ru.waveaccess.test.conference.repositories.UsersRepository;
 
 import java.util.Optional;
 
@@ -14,12 +14,11 @@ import java.util.Optional;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsersRepository usersRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        System.out.println("here");
-        Optional<User> userOptional = userRepository.findByEmail(email);
+        Optional<User> userOptional = usersRepository.findByEmail(email);
         if (userOptional.isPresent()) {
             return new UserDetailsImpl(userOptional.get());
         }
