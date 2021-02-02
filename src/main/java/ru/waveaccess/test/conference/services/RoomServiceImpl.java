@@ -17,7 +17,7 @@ public class RoomServiceImpl implements RoomService {
     @Transactional
     @Override
     public List<Room> getAll() {
-       return roomsRepository.findAll();
+        return roomsRepository.findAll();
     }
 
     @Transactional

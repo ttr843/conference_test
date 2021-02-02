@@ -19,7 +19,7 @@ public class SignUpDto {
     private String email;
     @NotNull(message = "password can`t be null")
     @NotEmpty(message = "password can`t be empty")
-    @Size(min = 8,message = "password must be 8 or more characters")
+    @Size(min = 8, message = "password must be 8 or more characters")
     private String password;
     @NotNull(message = "first name can`t be null")
     private String firstName;

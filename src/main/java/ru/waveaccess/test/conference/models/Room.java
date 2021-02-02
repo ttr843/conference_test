@@ -12,7 +12,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "rooms")
-public class Room  {
+public class Room {
     @Column(updatable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

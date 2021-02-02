@@ -8,6 +8,8 @@ import java.util.Map;
 
 public interface ScheduleService {
     boolean addPresentationToSchedule(ScheduleDto scheduleDto);
+
     List<ScheduleDto> findByRoomNumber(int number);
+
     Map<Integer, List<Schedule>> findAllScheduleByRoom();
 }

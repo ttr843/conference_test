@@ -46,6 +46,7 @@ public class UserServiceImpl implements UserService {
         return mapper.toDto(user);
     }
 
+    @Transactional
     @Override
     public UserDto saveOrUpdate(UserDto userDto) {
         User user = mapper.fromDto(userDto);

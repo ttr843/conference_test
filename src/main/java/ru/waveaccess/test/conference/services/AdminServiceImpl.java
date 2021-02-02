@@ -27,9 +27,9 @@ public class AdminServiceImpl implements AdminService {
     public UserDto changeUsersRole(Long id) {
         User user = usersRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("user not found"));
-        if(user.getRole() == LISTENER){
+        if (user.getRole() == LISTENER) {
             user.setRole(PRESENTER);
-        }else {
+        } else {
             user.setRole(LISTENER);
         }
         usersRepository.save(user);
@@ -41,13 +41,13 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public void deleteUserById(Long id) {
         usersRepository.delete(usersRepository.findById(id)
-        .orElseThrow(() -> new EntityNotFoundException("user not found")));
+                .orElseThrow(() -> new EntityNotFoundException("user not found")));
     }
 
     @Transactional
     @Override
     public List<UserDto> getAllUsers(int page, int size) {
-        PageRequest pageRequest = PageRequest.of(page,size);
+        PageRequest pageRequest = PageRequest.of(page, size);
         return usersRepository.findAll(pageRequest).stream()
                 .map(mapper::toDto)
                 .collect(Collectors.toList());

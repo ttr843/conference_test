@@ -30,15 +30,15 @@ public class ScheduleServiceImpl implements ScheduleService {
         Schedule schedule = scheduleMapper.fromDto(scheduleDto);
         ZonedDateTime startTime = schedule.getStartTime();
         ZonedDateTime endTime = schedule.getEndTime();
-        if(startTime.isAfter(endTime)){
+        if (startTime.isAfter(endTime)) {
             throw new IllegalArgumentException("wrong time");
         }
         Room room = schedule.getRoom();
         List<Schedule> scheduleList = schedulesRepository.findByRoom(room);
-        for(Schedule sch: scheduleList){
+        for (Schedule sch : scheduleList) {
             ZonedDateTime sTime = sch.getStartTime();
             ZonedDateTime eTime = sch.getEndTime();
-            if(startTime.isBefore(eTime) && sTime.isBefore(endTime)){
+            if (startTime.isBefore(eTime) && sTime.isBefore(endTime)) {
                 throw new IllegalArgumentException("time already in use,choose another");
             }
         }
@@ -57,14 +57,13 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
 
-
     @Transactional
     @Override
-    public Map<Integer,List<Schedule>> findAllScheduleByRoom() {
-        Map<Integer,List<Schedule>> listMap = new HashMap<>();
+    public Map<Integer, List<Schedule>> findAllScheduleByRoom() {
+        Map<Integer, List<Schedule>> listMap = new HashMap<>();
         List<Room> roomList = roomService.getAll();
-        for (Room room: roomList
-             ) {
+        for (Room room : roomList
+        ) {
             List<Schedule> scheduleList = schedulesRepository.findByRoom(room);
             listMap.put(room.getNumber(), scheduleList);
         }

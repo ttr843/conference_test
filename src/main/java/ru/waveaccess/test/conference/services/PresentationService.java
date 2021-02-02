@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface PresentationService {
     List<Presentation> findAllByPresenter(User presenter);
+
     PresentationDto saveOrUpdate(PresentationDto presentationDto);
+
     void deleteById(Long id);
 }

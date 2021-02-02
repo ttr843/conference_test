@@ -7,10 +7,12 @@ import ru.waveaccess.test.conference.models.User;
 
 import java.util.Optional;
 
-public interface UsersRepository extends JpaRepository<User,Long> {
+public interface UsersRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
+
     Optional<User> findByConfirmCode(String confirmCode);
+
     @Modifying
-    @Query(value = "update conference.users set state = 'LOCKED' where email = :email",nativeQuery = true)
+    @Query(value = "update conference.users set state = 'LOCKED' where email = :email", nativeQuery = true)
     void lock(String email);
 }

@@ -8,6 +8,6 @@ import ru.waveaccess.test.conference.models.Schedule;
 import java.awt.print.Pageable;
 import java.util.List;
 
-public interface SchedulesRepository extends JpaRepository<Schedule,Long> {
+public interface SchedulesRepository extends JpaRepository<Schedule, Long> {
     List<Schedule> findByRoom(Room room);
 }

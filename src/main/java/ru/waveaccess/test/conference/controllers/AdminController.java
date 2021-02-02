@@ -22,12 +22,12 @@ public class AdminController {
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/admin")
     public String getAll(@RequestParam(value = "page", required = false) Integer page,
-                                @RequestParam(value = "size", required = false) Integer size,
-                                Model model
+                         @RequestParam(value = "size", required = false) Integer size,
+                         Model model
     ) {
         page = page == null ? 0 : page;
         size = size == null ? 15 : size;
-        model.addAttribute("users",adminService.getAllUsers(page, size));
+        model.addAttribute("users", adminService.getAllUsers(page, size));
         return "admin_page";
     }
 
