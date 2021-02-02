@@ -30,7 +30,7 @@ public class AdminServiceImpl implements AdminService {
         if(user.getRole() == LISTENER){
             user.setRole(PRESENTER);
         }else {
-            user.setRole(PRESENTER);
+            user.setRole(LISTENER);
         }
         usersRepository.save(user);
         return mapper.toDto(user);

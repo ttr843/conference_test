@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PresentationsRepository extends JpaRepository<Presentation,Long> {
     List<Presentation> findByPresenters(User presenter);
+
 }

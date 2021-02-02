@@ -18,4 +18,6 @@ public class UserDto {
     private State state;
     private String confirmCode;
 
+
+
 }
