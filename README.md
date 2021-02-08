@@ -25,7 +25,7 @@ We then put this executable JAR into the Docker image by running the docker buil
 To build docker image of this example application, use the following command:
 
 ```bash
- docker build -t conference:v1.
+ docker build .-t conference:v1.
 ```
 To run the docker containers, change directory to the `dev-env` and run:
 
